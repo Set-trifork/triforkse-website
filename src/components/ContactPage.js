@@ -285,10 +285,18 @@ export default class ContactPage extends Component {
     return (
       <div>
         <Navbar />
-        <div className="contact-page__worldmap" ref="worldmap"></div>
-        <div className="contact-page__vcards">
-            { this.renderVCard(vcardTrifork) }
-            { this.renderVCard(vcardThomas) }
+        <div className="contact-page">
+          <div className="contact-page__image"></div>
+          <div className="contact-page__text">
+            <h1>Come and visit us!</h1>
+            <p>We have our offices in the beautiful Gamla Stan, the old town of Stockholm. Just drop us a message and let us know when you'd like to come over.</p>
+            <p>Or, if you'd rather get your coffee mug signed, why not join us for lunch?</p>
+          </div>
+          <div className="contact-page__vcards">
+              { this.renderVCard(vcardTrifork) }
+              { this.renderVCard(vcardThomas) }
+          </div>
+          <div className="contact-page__worldmap" ref="worldmap"></div>
         </div>
         <PageFooter />
       </div>
