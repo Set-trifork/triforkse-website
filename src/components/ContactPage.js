@@ -1,277 +1,34 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar';
 import PageFooter from './PageFooter';
-import { default as GoogleMapsLoader } from 'google-maps';
 import './ContactPage.css';
-import pin from '../images/graphics/pin.png';
-import pinSmall from '../images/graphics/pin-small.png';
 
-const vcardTrifork = [
-  { key: "name", value: "Trifork AB" },
-  { key: "street", field: "Street", value: "Ferkens Gränd 3" },
-  { key: "city", field: "City", value: "SE-111 30 Stockholm" },
-  { key: "country", field: "Country", value: "Sweden" },
-  { key: "vat", field: "Org no.", value: "556993-3392" },
-  { key: "email", field: "Email", value: <a href="mailto:stockholm@trifork.com">stockholm@trifork.com</a> }
-];
-
-const vcardThomas = [
-  { key: "name", value: "Thomas Anagrius" },
-  { key: "title", field: "Title", value: "VD, Managing Director" },
-  { key: "phone", field: "Phone", value: "+46 70 445 0863" },
-  { key: "email", field: "Email", value: <a href="mailto:thb@trifork.com">thb@trifork.com</a> }
-];
-
-const mapOptions = {
-  center: {lat: 59.323, lng: 18.03},
-  zoom: 4,
-  scrollwheel: false,
-  navigationControl: false,
-  mapTypeControl: false,
-  scaleControl: false,
-  draggable: false,
-  mapTypeId: "roadmap",
-  styles: [
-    {
-      "featureType": "all",
-      "elementType": "labels.text.fill",
-      "stylers": [
-        {
-          "color": "#ffffff"
-        }
-      ]
-    },
-    {
-      "featureType": "all",
-      "elementType": "labels.text.stroke",
-      "stylers": [
-        {
-          "color": "#000000"
-        },
-        {
-          "lightness": 13
-        }
-      ]
-    },
-    {
-      "featureType": "administrative",
-      "elementType": "geometry.fill",
-      "stylers": [
-        {
-          "color": "#000000"
-        }
-      ]
-    },
-    {
-      "featureType": "administrative",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        {
-          "color": "#144b53"
-        },
-        {
-          "lightness": 14
-        },
-        {
-          "weight": 1.4
-        }
-      ]
-    },
-    {
-      "featureType": "administrative.locality",
-      "elementType": "all",
-      "stylers": [
-        {
-          "visibility": "off"
-        }
-      ]
-    },
-    {
-      "featureType": "administrative.locality",
-      "elementType": "labels.icon",
-      "stylers": [
-        {
-          "visibility": "on"
-        }
-      ]
-    },
-    {
-      "featureType": "landscape",
-      "elementType": "all",
-      "stylers": [
-        {
-          "color": "#08304b"
-        }
-      ]
-    },
-    {
-      "featureType": "poi",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#0c4152"
-        },
-        {
-          "lightness": 5
-        }
-      ]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry.fill",
-      "stylers": [
-        {
-          "color": "#000000"
-        }
-      ]
-    },
-    {
-      "featureType": "road.highway",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        {
-          "color": "#0b434f"
-        },
-        {
-          "lightness": 25
-        }
-      ]
-    },
-    {
-      "featureType": "road.arterial",
-      "elementType": "geometry.fill",
-      "stylers": [
-        {
-          "color": "#000000"
-        }
-      ]
-    },
-    {
-      "featureType": "road.arterial",
-      "elementType": "geometry.stroke",
-      "stylers": [
-        {
-          "color": "#0b3d51"
-        },
-        {
-          "lightness": 16
-        }
-      ]
-    },
-    {
-      "featureType": "road.local",
-      "elementType": "geometry",
-      "stylers": [
-        {
-          "color": "#000000"
-        }
-      ]
-    },
-    {
-      "featureType": "transit",
-      "elementType": "all",
-      "stylers": [
-        {
-          "color": "#146474"
-        }
-      ]
-    },
-    {
-      "featureType": "water",
-      "elementType": "all",
-      "stylers": [
-        {
-          "color": "#021019"
-        }
-      ]
-    }
+const vcardTrifork = {
+  name: "Trifork AB",
+  items: [
+    { key: "street", field: "Street", value: "Ferkens Gränd 3" },
+    { key: "city", field: "City", value: "SE-111 30 Stockholm" },
+    { key: "country", field: "Country", value: "Sweden" },
+    { key: "vat", field: "Org no.", value: "556993-3392" },
+    { key: "email", field: "Email", value: <a href="mailto:stockholm@trifork.com">stockholm@trifork.com</a> }
   ]
 };
 
-const markerData = [
-  {
-    "lat": 56.152759,
-    "long": 10.195402
-  },
-  {
-    "lat": 56.218600,
-    "long": 10.145964
-  },
-  {
-    "lat": 55.684649,
-    "long": 12.586092
-  },
-  {
-    "lat": 55.527404,
-    "long": 8.449280
-  },
-  {
-    "lat": 52.516903,
-    "long": 13.389893
-  },
-  {
-    "lat": 47.481089,
-    "long": 19.065776
-  },
-  {
-    "lat": 52.347796,
-    "long": 4.850765
-  },
-  {
-    "lat": 51.445583,
-    "long": 5.460362
-  },
-  {
-    "lat": 52.366384,
-    "long": 4.877263
-  },
-  {
-    "lat": 50.064152,
-    "long": 19.942219
-  },
-  {
-    "thisIsUs": true,
-    "lat": 59.323125,
-    "long": 18.075935
-  },
-  {
-    "lat": 47.177497,
-    "long": 8.710227
-  },
-  {
-    "lat": 53.790796,
-    "long": -1.552236
-  },
-  {
-    "lat": 51.512893,
-    "long": -0.067163
-  },
-  {
-    "lat": 51.505091,
-    "long": -0.100208
-  },
-  {
-    "lat": 37.787191,
-    "long": -122.399027
-  }
-];
+const vcardThomas = {
+  name: "Thomas Anagrius",
+  items: [
+    { key: "title", field: "Title", value: "VD, Managing Director" },
+    { key: "phone", field: "Phone", value: "+46 70 445 0863" },
+    { key: "email", field: "Email", value: <a href="mailto:thb@trifork.com">thb@trifork.com</a> }
+  ]
+};
 
 export default class ContactPage extends Component {
-  componentDidMount() {
-    GoogleMapsLoader.load((google) => {
-      let map = new google.maps.Map(this.refs.worldmap, mapOptions);
-      markerData.map(data => new google.maps.Marker({
-        position: new google.maps.LatLng(data.lat, data.long),
-        map: map,
-        icon: (!!data.thisIsUs) ? pin : pinSmall
-      }));
-    });
-  }
-
   renderVCard(vcard) {
     return (
       <div className="contact-page__vcard">
-        { vcard.map(item => (
+        <h2>{vcard.name}</h2>
+        { vcard.items.map(item => (
           <div key={item.key} className={"contact-page__vcard-row " + item.key}>
             <span className="contact-page__vcard-field">{item.field}</span>
             {item.value}
@@ -286,17 +43,25 @@ export default class ContactPage extends Component {
       <div>
         <Navbar />
         <div className="contact-page">
-          <div className="contact-page__image"></div>
+          <div className="contact-page__image contact-page__image1"></div>
           <div className="contact-page__text">
             <h1>Come and visit us!</h1>
             <p>We have our offices in the beautiful Gamla Stan, the old town of Stockholm. Just drop us a message and let us know when you'd like to come over.</p>
+            <p>There's also a good chance we'll be attending on of the many meetups in Stockholm. We usually <a href="/blog">blog</a> about it.</p>
             <p>Or, if you'd rather get your coffee mug signed, why not join us for lunch?</p>
           </div>
-          <div className="contact-page__vcards">
+          <div className="contact-page__side-by-side contact-page__image-container">
+            <div className="contact-page__image contact-page__image2"></div>
+            <div className="contact-page__image contact-page__image3"></div>
+          </div>
+          <div className="contact-page__text">
+            <h1>Or send us a message</h1>
+            <p>Some inspiring and hopefully meaningful text here.</p>
+          </div>
+          <div className="contact-page__side-by-side contact-page__vcards">
               { this.renderVCard(vcardTrifork) }
               { this.renderVCard(vcardThomas) }
           </div>
-          <div className="contact-page__worldmap" ref="worldmap"></div>
         </div>
         <PageFooter />
       </div>

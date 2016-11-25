@@ -22,18 +22,37 @@
 }
 
 .contact-page__image {
-  height: 370px;
-  margin-top: 5px;
-  background: url("../images/photos/gamlastan.jpg");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  border: 8px solid #ddd;
+  border-radius: 5px;
 }
 
-.contact-page__worldmap {
-  width: 100%;
-  height: 475px;
+.contact-page__side-by-side {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-page__image-container {
+  height: 360px;
+}
+
+.contact-page__image1 {
+  height: 360px;
+  margin-top: 5px;
+  background-image: url("../images/photos/gamlastan.jpg");
+}
+
+.contact-page__image2 {
+  width: 48%;
+  background-image: url("../images/photos/2.jpg");
+}
+
+.contact-page__image3 {
+  width: 48%;
+  background-image: url("../images/photos/6.jpg");
 }
 
 .contact-page__map-title {
@@ -41,27 +60,31 @@
 }
 
 .contact-page__vcards {
+  position: relative;
   font-size: 1.2rem;
+  margin-bottom: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .contact-page__vcard {
-  width: 400px;
-  margin: 50px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-  border-radius: 2px;
-  padding: 15px 50px 30px;
+  box-sizing: border-box;
+  width: 49%;
+  border-radius: 5px;
+  padding: 15px 50px 35px;
   background-color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 
 .contact-page__vcard-row {
   margin: 10px;
 }
 
-.contact-page__vcard-row.name {
+.contact-page__vcard h2 {
   font-weight: 300;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 32px;
 }
 
 .contact-page__vcard-field {
