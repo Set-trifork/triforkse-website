@@ -2,7 +2,20 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+.about, .people {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 75px;
+}
+
+.about {
+  padding-left: 10px;
+  max-width: 50vw;
 }

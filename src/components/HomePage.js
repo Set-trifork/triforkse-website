@@ -23,7 +23,7 @@ export default class HomePage extends Component {
     return (
       <div {...page()}>
         <div {...page("splash")}>
-          <Navbar transparent={true} />
+          <Navbar transparent={true} current="/"/>
           {this.state.splash}
         </div>
 

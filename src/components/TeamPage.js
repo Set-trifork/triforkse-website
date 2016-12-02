@@ -8,17 +8,30 @@ export default class TeamPage extends Component {
   render() {
     return (
       <div>
-        <Navbar transparent={false}/>
+        <Navbar transparent={false} current="/team"/>
         <div className="team-container">
-          <EmployeeCard name="Thomas" position="CEO" avatar={require("../images/graphics/generic-avatar.png")} linkedin="linkedin" github="github"/>
-          <EmployeeCard name="Florain" position="Developer"/>
-          <EmployeeCard name="Set" position="Community Manager" avatar={require("../images/graphics/generic-avatar.png")} linkedin="set"/>
-          <EmployeeCard name="Joakim" position="Something" linkedin="joakim"/>
-          <EmployeeCard name="Amina" position="Developer" github="aminahh"/>
-          <EmployeeCard name="Hampus" position="Developer" avatar={require("../images/graphics/generic-avatar.png")}/>
-          <EmployeeCard name="Blair Harris" position="Junior Developer" linkedin="https://se.linkedin.com/in/blairehh" github="https://github.com/blairehh"/>
-          <EmployeeCard name="Max" position="Developer" avatar={require("../images/graphics/generic-avatar.png")}/>
-          <EmployeeCard name="Andreas" position="Developer"/>
+          <div className="about">
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+            This is TriFork Sweden, blah blah blah BLAH!!!!!!!
+          </div>
+          <div className="people">
+            <EmployeeCard name="Thomas" position="CEO" avatar={require("../images/people/thb.jpg")} linkedin="linkedin" github="github"/>
+            <EmployeeCard name="Florain" position="Developer"/>
+            <EmployeeCard name="Set" position="Community Manager" avatar={require("../images/people/set.jpg")} linkedin="set"/>
+          </div>
         </div>
         <PageFooter />
       </div>

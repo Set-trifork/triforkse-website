@@ -284,7 +284,7 @@ export default class ContactPage extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar current="/contact"/>
         <div className="contact-page__worldmap" ref="worldmap"></div>
         <div className="contact-page__vcards">
             { this.renderVCard(vcardTrifork) }

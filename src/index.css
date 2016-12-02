@@ -52,7 +52,7 @@ body, #root, #root > div {
 }
 
 .page-footer {
-  background-color: black;
+  background-color: #383838;
   padding: 38px;
   color: white;
   flex: 0 0 auto;
