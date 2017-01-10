@@ -33,7 +33,7 @@ export default class HomePage extends Component {
             <div {...section(null, "narrow")}>
               <h2 {...section("title")}>Experience and skills you need.</h2>
               <div {...section("text")}>
-                <div className="description">
+                <div {...section("description")}>
                   Trifork has produced high quality applications for hundreds of clients.
                   We have been software for more than 20 years and
                   no project is too large – or too small. We focus on constantly educating ourselves, our clients, and the community.
@@ -78,7 +78,7 @@ export default class HomePage extends Component {
             <div {...section(null, "narrow")}>
               <h2 {...section("title")}>Small &amp; Effective Teams</h2>
               <div {...section("text")}>
-                <div className="description">
+                <div {...section("description")}>
                   You’ll be working with a small, dedicated team built to fit the needs of your project. Each team works on one project at a time to stay focused. We use tools like Trello, Slack and GitHub to communicate frequently.
                 </div>
                 <List

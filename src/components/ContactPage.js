@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import Navbar from './Navbar';
 import PageFooter from './PageFooter';
 import './ContactPage.css';
+import BEM from '../BEM';
+
+const page = BEM("contact-page");
+const section = BEM("section");
 
 const vcardTrifork = {
   name: "Trifork AB",
@@ -26,11 +30,11 @@ const vcardThomas = {
 export default class ContactPage extends Component {
   renderVCard(vcard) {
     return (
-      <div className="contact-page__vcard">
+      <div {...page("vcard")}>
         <h2>{vcard.name}</h2>
         { vcard.items.map(item => (
-          <div key={item.key} className={"contact-page__vcard-row " + item.key}>
-            <span className="contact-page__vcard-field">{item.field}</span>
+          <div key={item.key} {...page("vcard-row")}>
+            <span {...page("vcard-field")}>{item.field}</span>
             {item.value}
           </div>
         )) }
@@ -40,27 +44,49 @@ export default class ContactPage extends Component {
 
   render() {
     return (
-      <div>
+      <div {...page()}>
         <Navbar current="/contact"/>
-        <div className="contact-page">
-          <div className="contact-page__image contact-page__image1"></div>
-          <div className="contact-page__text">
-            <h1>Come and visit us!</h1>
-            <p>We have our offices in the beautiful Gamla Stan, the old town of Stockholm. Just drop us a message and let us know when you'd like to come over.</p>
-            <p>There's also a good chance we'll be attending on of the many meetups in Stockholm. We usually <a href="/blog">blog</a> about it.</p>
-            <p>Or, if you'd rather get your coffee mug signed, why not join us for lunch?</p>
+
+        <div {...page("content")}>
+          <div {...page("left")} style={{ backgroundImage: `url(${require("../images/photos/gamlastan.jpg")})`, backgroundPosition: "center" }}>
           </div>
-          <div className="contact-page__side-by-side contact-page__image-container">
-            <div className="contact-page__image contact-page__image2"></div>
-            <div className="contact-page__image contact-page__image3"></div>
+          <div {...page("right")}>
+            <h2  {...section("title")}>Come and visit us!</h2>
+            <div {...section("text")}>
+              <div {...section("description")}>
+                <p>We have our offices in the beautiful Gamla Stan, the old town of Stockholm. Just drop us a message and let us know when you'd like to come over.</p>
+                <p>There's also a good chance we'll be attending on of the many meetups in Stockholm. We usually <a href="/blog">blog</a> about it.</p>
+                <p>Or, if you'd rather get your coffee mug signed, why not join us for lunch?</p>
+              </div>
+            </div>
           </div>
-          <div className="contact-page__text">
-            <h1>Or send us a message</h1>
-            <p>Some inspiring and hopefully meaningful text here.</p>
+        </div>
+
+        <div {...page("content", "alternate")}>
+          <div {...page("map")} style={{ backgroundImage: `url(${require("../images/pictures/map.png")})` }}></div>
+          <div {...page("map-info")}>
+            <h3>20 Offices in 9 Countries</h3>
+            <p>The Swedish Trifork Office is one of many Trifork. If you are looking for one of our other offices, head over to our <a href="http://trifork.com/">Global Website.</a></p>
           </div>
-          <div className="contact-page__side-by-side contact-page__vcards">
-              { this.renderVCard(vcardTrifork) }
-              { this.renderVCard(vcardThomas) }
+        </div>
+
+        <div {...page("content")}>
+          <div {...page("left")} style={{ backgroundImage: `url(${require("../images/photos/6.jpg")})` }}>
+          </div>
+          <div {...page("right")}>
+            <h2  {...section("title")}>Or send us a message</h2>
+            <div {...section("text")}>
+              <div {...section("description")}>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rhoncus eget est a congue. Maecenas non fringilla urna, vitae interdum libero. Nunc ut sem eleifend, volutpat sapien vitae, rhoncus purus. Sed at tortor eget est feugiat bibendum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div {...page("content", "focus")}>
+          <div {...page("vcards")}>
+            { this.renderVCard(vcardTrifork) }
+            { this.renderVCard(vcardThomas) }
           </div>
         </div>
         <PageFooter />

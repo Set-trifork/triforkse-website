@@ -1,83 +1,90 @@
-.contact-page {
-  max-width: 1000px;
-  margin: auto;
-}
-
-.contact-page__text {
-  margin: 20px 0;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-  border-radius: 2px;
-  padding: 15px 50px 30px;
+.contact-page__content {
+  position: relative;
   background-color: white;
-}
-
-.contact-page__text > h1 {
-  font-size: 2rem;
-  font-weight: 300;
-}
-
-.contact-page__text > p {
-  font-size: 1.2rem;
-  font-weight: 300;
-}
-
-.contact-page__image {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 8px solid #ddd;
-  border-radius: 5px;
-}
-
-.contact-page__side-by-side {
-  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  min-height: 600px;
+  justify-content: center;
 }
 
-.contact-page__image-container {
-  height: 360px;
+.contact-page__content--alternate {
+  min-height: 0;
 }
 
-.contact-page__image1 {
-  height: 360px;
-  margin-top: 5px;
-  background-image: url("../images/photos/gamlastan.jpg");
+.contact-page__content--focus {
+  background-color: #0079bf;
+  min-height: 0;
 }
 
-.contact-page__image2 {
-  width: 48%;
-  background-image: url("../images/photos/2.jpg");
+.contact-page__left {
+  width: 50%;
+  flex: 0 0 auto;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.contact-page__image3 {
-  width: 48%;
-  background-image: url("../images/photos/6.jpg");
+.contact-page__right {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 60px;
 }
 
-.contact-page__map-title {
-  font-size: 1.8rem;
+.contact-page__map {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-page__map-info {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 300px;
+  padding: 20px;
+  color: white;
+  background: rgba(0,0,0,0.65);
+}
+
+.contact-page__map-info a {
+  color: #f57721;
+}
+
+.contact-page__map-info > h3 {
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0;
 }
 
 .contact-page__vcards {
+  display: flex;
   position: relative;
+  width: 85%;
+  padding: 50px 20px;
   font-size: 1.2rem;
   margin-bottom: 20px;
-  display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .contact-page__vcard {
   box-sizing: border-box;
   width: 49%;
   border-radius: 5px;
-  padding: 15px 50px 35px;
-  background-color: white;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  padding: 25px 50px 50px;
+  border: 1px solid white;
+  color: white;
+}
+
+.contact-page__vcard a {
+  color: orange;
 }
 
 .contact-page__vcard-row {
-  margin: 10px;
+  margin: 5px;
 }
 
 .contact-page__vcard h2 {
@@ -90,6 +97,6 @@
 .contact-page__vcard-field {
   width: 90px;
   display: inline-block;
-  color: gray;
+  opacity: .7;
   font-weight: 300;
 }
