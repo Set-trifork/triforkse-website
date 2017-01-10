@@ -22,6 +22,7 @@
   left: -32px;
   height: 64px;
   width: 64px;
+  border-radius: 50%
 }
 
 .employee-card-avatar-hidden {

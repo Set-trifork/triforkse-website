@@ -41,7 +41,7 @@ export default class ContactPage extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar current="/contact"/>
         <div className="contact-page">
           <div className="contact-page__image contact-page__image1"></div>
           <div className="contact-page__text">

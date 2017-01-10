@@ -1,6 +1,6 @@
 .navbar {
   height: 60px;
-  background-color: rgb(0, 183, 170);
+  background-color: #383838;
   width: 100%;
 }
 
@@ -43,6 +43,10 @@
   bottom: -3px;
   opacity: 0;
   transition: all 0.2s;
+}
+
+.navbar__menu-current-item::after {
+  opacity: 0.9;
 }
 
 .navbar__menu-item:hover::after {
